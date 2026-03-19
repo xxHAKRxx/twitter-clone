@@ -4,4 +4,28 @@
 
 {% block content %}
     <h1>Dashboard</h1>
+    <a href="{% url 'twit_create' %}" class="btn btn-primary mb-3">New Twit</a>
+    {% for twit in twit_list %}
+        <div class="card">
+            <div class="card-header">
+                <span>{{ twit.author }} | {{ twit.updated }}</span>
+                <a href="{% url 'twit_detail' twit.pk %}" class="btn btn-info btn-sm">View in Detail</a>
+                {% if user.is_authenticated and user == twit.author %}
+                    <a href="{% url "twit_edit" twit.pk %}" class="btn btn-info btn-sm">Edit</a>
+                    <a href="{% url "twit_delete" twit.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                {% endif %}
+            </div>
+            <div class="card-body">
+                {{ twit.body }}
+                {% if twit.image_url %}
+                    <img src="{{ twit.image_url }}" alt="Twit Image" class="img-fluid">
+                {% endif %}
+            </div>
+            <div class="card_footer text-center text-muted">
+                <a href="#">Comments</a> |
+                <a href="#">Likes</a>
+            </div>
+        </div>
+        <br>
+    {% endfor %}
 {% endblock content %}
