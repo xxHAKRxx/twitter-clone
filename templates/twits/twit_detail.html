@@ -10,8 +10,12 @@
             <img src="{{ twit.image_url }}" alt="ERROR: Image not found" class="img-fluid ml-2">
         {% endif %}
     </div>
-    <p>
-        <a href="#">Comments</a> | 
-        <a href="#">Likes</a>
-    </p>
+    
+    <h3>Comments</h3>
+    <hr>
+    {% for comment in twit.comments.all %}
+        <p>{{ comment.author }}</p>
+        <p>{{ comment.body }}</p>
+        <hr>
+    {% endfor %}    
 {% endblock content %}

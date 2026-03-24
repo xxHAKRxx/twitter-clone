@@ -9,7 +9,6 @@
         <div class="card">
             <div class="card-header">
                 <span>{{ twit.author }} | {{ twit.updated }}</span>
-                <a href="{% url 'twit_detail' twit.pk %}" class="btn btn-info btn-sm">View in Detail</a>
                 {% if user.is_authenticated and user == twit.author %}
                     <a href="{% url "twit_edit" twit.pk %}" class="btn btn-info btn-sm">Edit</a>
                     <a href="{% url "twit_delete" twit.pk %}" class="btn btn-danger btn-sm">Delete</a>
@@ -22,8 +21,8 @@
                 {% endif %}
             </div>
             <div class="card_footer text-center text-muted">
-                <a href="#">Comments</a> |
-                <a href="#">Likes</a>
+                <a href="{% url "twit_detail" twit.pk %}" class="btn btn-info btn-sm">Comments</a>
+                <a href="#" class="btn btn-info btn-sm">Likes</a>
             </div>
         </div>
         <br>

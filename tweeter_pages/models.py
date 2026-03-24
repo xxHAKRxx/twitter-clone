@@ -29,3 +29,35 @@ class Twit(models.Model):
     
     def get_absolute_url(self):
         return reverse("twit_detail", kwargs={"pk": self.pk})
+    
+class Comment(models.Model):
+    """
+    The model for a comment on a twit.
+
+    Attributes:
+    - twit (int NOT NULL): The twit that the comment is on.
+    - author (int NOT NULL): The user that created the comment.
+    - body (varchar(140)): The content of the comment.
+    - created (datetime AUTO): The date and time the comment was created.
+    - updated (datetime AUTO): The date and time the comment was last updated.
+    """
+    twit = models.ForeignKey(
+        Twit,
+        on_delete=models.CASCADE,
+        related_name="comments",
+    )
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
+    body = models.CharField(blank=True, max_length=140)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        """Comment as a string"""
+        
+        return str(self.author)
+    
+    def get_absolute_url(self):
+        return reverse("twit_detail")
