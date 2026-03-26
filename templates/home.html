@@ -15,9 +15,11 @@
                 {% endif %}
             </div>
             <div class="card-body">
-                {{ twit.body }}
+                <div>{{ twit.body }}</div>
                 {% if twit.image_url %}
-                    <img src="{{ twit.image_url }}" alt="ERROR: Image not found" class="img-fluid mt-2">
+                    <div>
+                        <img src="{{ twit.image_url }}" alt="ERROR: Image not found" class="img-fluid mt-2">
+                    </div>
                 {% endif %}
             </div>
             <div class="card_footer text-center text-muted">
