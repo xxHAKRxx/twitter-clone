@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.views import View
 from django.views.generic import ListView, DetailView, FormView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -13,6 +14,13 @@ class HomePageView(ListView):
     model = Twit
     template_name = "home.html"
     # Orders each twit by when it was last updated, with most recent being first.
+    ordering = ["-updated"]
+
+class ProfileView(LoginRequiredMixin, ListView):
+    """List view for a user's profile page, containing a list of their twits."""
+
+    model = Twit
+    template_name = "profile.html"
     ordering = ["-updated"]
 
 class TwitDetailView(LoginRequiredMixin, View):
@@ -109,3 +117,9 @@ class TwitDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self):
         obj = self.get_object()
         return obj.author == self.request.user
+    
+class TwitLikeView(LoginRequiredMixin, View):
+    """View for liking a Twit."""
+
+    def get(self, request, *args, **kwargs):
+        return HttpResponse("If you're seeing this, the like view is working!")

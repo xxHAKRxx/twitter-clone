@@ -17,6 +17,11 @@ class Twit(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
+    likes = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        related_name="liked_twits",
+        blank=True,
+    )
     body = models.TextField(blank=True)
     image_url = models.URLField(blank=True, max_length=400)
     created = models.DateTimeField(auto_now_add=True)
@@ -29,6 +34,11 @@ class Twit(models.Model):
     
     def get_absolute_url(self):
         return reverse("twit_detail", kwargs={"pk": self.pk})
+    
+    def get_like_url(self):
+        """Get the like URL based on the twit's PK."""
+        
+        return reverse("twit_like", kwargs={"pk": self.pk})
     
 class Comment(models.Model):
     """
