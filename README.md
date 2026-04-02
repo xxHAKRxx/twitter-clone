@@ -139,7 +139,9 @@ https://getbootstrap.com/docs/5.3/getting-started/introduction/
 
 ## Outside Resources Used
 
-
+Bootstrap for CSS styling: https://getbootstrap.com/docs/5.3/examples/sticky-footer-navbar/
+jQuery for implementing like functionality: https://releases.jquery.com/
 
 ## Known Problems, Issues, And/Or Errors in the Program
 
+Trying to like a twit results in an error that says: "Twit matching query does not exist."
