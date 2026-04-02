@@ -8,6 +8,7 @@ class Twit(models.Model):
 
     Attributes:
     - author (int NOT NULL): The user that created the twit.
+    - likes (ManyToMany): The users that have liked the twit.
     - body (longtext): The text content of the twit.
     - image_url (varchar(400)): The URL of any images attached to the twit.
     - created (datetime AUTO): The date and time the twit was created.

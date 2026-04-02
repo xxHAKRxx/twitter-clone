@@ -1,4 +1,6 @@
-from django.http import HttpResponse
+from urllib import request
+
+from django.http import JsonResponse
 from django.views import View
 from django.views.generic import ListView, DetailView, FormView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -122,4 +124,14 @@ class TwitLikeView(LoginRequiredMixin, View):
     """View for liking a Twit."""
 
     def get(self, request, *args, **kwargs):
-        return HttpResponse("If you're seeing this, the like view is working!")
+        # Get the data from the GET request
+        twit_id = request.GET.get("twit_id", None)
+        twit_action = request.GET.get("twit_action", None)
+
+        twit = Twit.objects.get(id=twit_id)
+        if twit_action == "like":
+            twit.likes.add(request.user)
+        else:
+            twit.likes.remove(request.user)
+
+        return JsonResponse({"success": True})
