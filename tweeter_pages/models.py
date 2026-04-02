@@ -17,6 +17,7 @@ class Twit(models.Model):
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
+        related_name="twits",
     )
     likes = models.ManyToManyField(
         settings.AUTH_USER_MODEL,

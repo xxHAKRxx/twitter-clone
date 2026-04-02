@@ -4,13 +4,22 @@
 
 {% block content %}
     <h1>{{ user.username }}'s Profile</h1>
+    <h2>Twits by this user:</h2>
     {% for twit in user.twits.all %}
         <div class="card">
+            <div class="card-header">
+                <span>
+                    {{ twit.updated }}
+                </span>
+            </div>
             <div class="card-body">
-                <p class="card-text">{{ twit.body }}</p>
+                <p>{{ twit.body }}</p>
                 {% if twit.image_url %}
                     <img src="{{ twit.image_url }}" alt="ERROR: Image not found" class="img-fluid mt-2">
                 {% endif %}
+            </div>
+            <div class="card-footer">
+                <a href="{% url "twit_detail" twit.pk %}" class="btn btn-primary">Comments</a>
             </div>
         </div>
     {% endfor %}
