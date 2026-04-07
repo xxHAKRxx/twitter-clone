@@ -4,14 +4,19 @@
 
 {% block content %}
     <h1>Dashboard</h1>
-    <a href="{% url 'twit_create' %}" class="btn btn-primary mb-3">New Twit</a>
+    <button class="btn btn-success mb-3">
+        <i class="new_twit_icon bi-plus-circle"></i>
+        <a href="{% url 'twit_create' %}" style="color: white; text-decoration: none;">New Twit</a>
+    </button>
     {% for twit in twit_list %}
         <div class="card">
             <div class="card-header">
                 <span>{{ twit.author }} | {{ twit.updated }}</span>
-                {% if user.is_authenticated and user == twit.author or user.is_staff %}
-                    <a href="{% url "twit_edit" twit.pk %}" class="btn btn-info btn-sm">Edit</a>
+                {% if user.is_authenticated and user == twit.author %}
+                    <a href="{% url "twit_edit" twit.pk %}" class="btn btn-primary btn-sm">Edit</a>
                     <a href="{% url "twit_delete" twit.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                {% elif user.is_authenticated and user.is_staff %}
+                    <a href="{% url "twit_delete" twit.pk %}" class="btn btn-danger btn-sm">NUKE EM</a>
                 {% endif %}
             </div>
             <div class="card-body">

@@ -7,7 +7,7 @@
     <div class="twit-entry">
         <h2>{{ twit.author }}</h2>
         {% if twit.author == user %}
-            <a href="{% url "twit_edit" twit.pk %}" class="btn btn-info btn-sm">Edit</a>
+            <a href="{% url "twit_edit" twit.pk %}" class="btn btn-primary btn-sm">Edit</a>
             <a href="{% url "twit_delete" twit.pk %}" class="btn btn-danger btn-sm">Delete</a>
         {% endif %}
         <p>{{ twit.body }}</p>
@@ -20,10 +20,11 @@
     <hr>
     {% if user.is_authenticated %}
         <h4>Add a Comment</h4>
+        <p style="color: red; font-weight: bold;">WARNING:</p>
         <p style="color: red;">
-            WARNING: Upon creation, you cannot delete or edit your comments unless you consult an admin. 
-            Please be considerate of your words and don't say anything that will come back to haunt you later
-            (just look at Twitter for proof of that).
+            You cannot edit or delete comments yourself once posting them.
+            The only way you can get your comment deleted is if you refer to an admin, since they have the power to delete comments in the site's admin page.
+            To save the pain of both asking the admin and making them search for and delete your comment, please be considerate of your words before posting.
         </p>
         <form action="" method="POST">
             {% csrf_token %}
