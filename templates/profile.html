@@ -3,7 +3,15 @@
 {% block title %}Profile{% endblock title %}
 
 {% block content %}
-    <h1>{{ user.username }}'s Profile</h1>
+    <h1>Your Profile</h1>
+    <a href="{% url "profile_edit" user.username %}" class="btn btn-primary mb-3">Edit Profile</a>
+    <ul>
+        <li><strong>Username:</strong> {{ user.username }}</li>
+        <li><strong>Real Name:</strong> {{ user.first_name }} {{ user.last_name }}</li>
+        <li><strong>Email:</strong> {{ user.email }}</li>
+        <li><strong>Joined:</strong> {{ user.date_joined }}</li>
+        <li><strong>Twits Made:</strong> {{ user.twits.count }}</li>
+    </ul>
     <h2>Twits by this user:</h2>
     {% for twit in user.twits.all %}
         <div class="card">

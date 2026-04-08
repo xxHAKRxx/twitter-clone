@@ -7,6 +7,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import SingleObjectMixin
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy, reverse
+from accounts.models import CustomUser
 from .models import Twit
 from .forms import CommentForm
 
@@ -24,6 +25,23 @@ class ProfileView(LoginRequiredMixin, ListView):
     model = Twit
     template_name = "profile.html"
     ordering = ["-updated"]
+
+class ProfileEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    """View for editing a user's profile."""
+
+    model = CustomUser
+    template_name = "profile_edit.html"
+    fields = (
+        "username",
+        "first_name",
+        "last_name",
+        "email",
+        "date_of_birth",
+    )
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.username == self.request.user
 
 class TwitDetailView(LoginRequiredMixin, View):
     """Detail view for a twit., which contains a form for comment creation."""
