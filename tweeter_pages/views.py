@@ -1,5 +1,3 @@
-from urllib import request
-
 from django.http import JsonResponse
 from django.views import View
 from django.views.generic import ListView, DetailView, FormView
