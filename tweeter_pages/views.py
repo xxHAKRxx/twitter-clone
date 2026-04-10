@@ -37,9 +37,17 @@ class ProfileEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         "date_of_birth",
     )
 
+    def get_object(self):
+        return self.request.user
+
     def test_func(self):
-        obj = self.get_object()
-        return obj.username == self.request.user
+        return self.get_object() == self.request.user
+    
+    def get_success_url(self):
+        """Redirects the user pack to their profile page with updated info."""
+
+        user = self.get_object()
+        return reverse("profile", kwargs={"username": user.username})
 
 class TwitDetailView(LoginRequiredMixin, View):
     """Detail view for a twit., which contains a form for comment creation."""

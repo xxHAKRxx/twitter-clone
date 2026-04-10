@@ -7,7 +7,14 @@
     <a href="{% url "profile_edit" user.username %}" class="btn btn-primary mb-3">Edit Profile</a>
     <ul>
         <li><strong>Username:</strong> {{ user.username }}</li>
-        <li><strong>Real Name:</strong> {{ user.first_name }} {{ user.last_name }}</li>
+        <li>
+            <strong>Real Name:</strong> 
+            {% if user.first_name or user.last_name %}
+                {{ user.first_name }} {{ user.last_name }}
+            {% else %}
+                None
+            {% endif %}
+        </li>
         <li><strong>Email:</strong> {{ user.email }}</li>
         <li><strong>Joined:</strong> {{ user.date_joined }}</li>
         <li><strong>Twits Made:</strong> {{ user.twits.count }}</li>
