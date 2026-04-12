@@ -1,3 +1,9 @@
+"""
+Name: Evan Westcomb
+Class: CIS 218
+Date: 4/13/2026
+"""
+
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from .forms import CustomUserCreationForm

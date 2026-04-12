@@ -1,3 +1,9 @@
+"""
+Name: Evan Westcomb
+Class: CIS 218
+Date: 4/13/2026
+"""
+
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 from django.urls import reverse

@@ -1,3 +1,9 @@
+/*
+Name: Evan Westcomb
+Class: CIS 218
+Date: 4/13/2026
+*/
+
 $(document).ready(function() {
     $(".like_button").click(function(event) {
         // Raises the like counter by 1 when a unique user clicks the like button, and vice versa

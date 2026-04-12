@@ -1,3 +1,9 @@
+"""
+Name: Evan Westcomb
+Class: CIS 218
+Date: 4/13/2026
+"""
+
 from django.http import JsonResponse
 from django.views import View
 from django.views.generic import ListView, DetailView, FormView

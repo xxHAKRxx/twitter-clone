@@ -1,3 +1,9 @@
+"""
+Name: Evan Westcomb
+Class: CIS 218
+Date: 4/13/2026
+"""
+
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import CustomUser
 
