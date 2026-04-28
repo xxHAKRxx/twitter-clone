@@ -22,6 +22,11 @@ A social media website that's basically Twitter but without the toxicity. A nich
    * ```(winpty) python manage.py runserver```
 7. You're officially in the site!
 
+> [!IMPORTANT]
+> MAKE SURE ENVIRONS AND GUNICORN ARE UPDATED TO LATEST VERSIONS. I BUILT THESE WITH OUTDATED VERSIONS WHICH WILL CAUSE ERRORS WHEN DEPLOYING. TO UPGRADE, TYPE THESE COMMANDS:
+> ```pip install --upgrade environs```
+> ```pip install --upgrade gunicorn```
+
 ## Outside Resources Used
 
 Bootstrap for CSS styling: https://getbootstrap.com/docs/5.3/examples/sticky-footer-navbar/
