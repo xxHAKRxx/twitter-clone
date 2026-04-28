@@ -18,9 +18,8 @@ A social media website that's basically Twitter but without the toxicity. A nich
    * ```python -m pip install -r requirements.txt```
 5. Open the project in VS Code (or any text editor really) and create a .env file with these lines:
    * ```DEBUG=True```
-   * ```SECRET_KEY=<randomly_generated_key>```
+   * ```SECRET_KEY=<randomly_generated_key>``` (You can create a random key using the command ```python -c "import secrets; print(secrets.token_urlsafe())"```)
    * ```DATABASE_URL=sqlite:///db.sqlite3```
-   You can create a random key using the command ```python -c "import secrets; print(secrets.token_urlsafe())"```
 6. Apply migrations to the project (It will work without them, but there will be problems).
    * ```(winpty) python manage,py migrate```
 7. Create a superuser so you can log yourself in.
