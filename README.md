@@ -16,16 +16,23 @@ A social media website that's basically Twitter but without the toxicity. A nich
    * ```. .venv/Scripts/activate```
 4. Install all of the packages found in a text file called requirements.txt.
    * ```python -m pip install -r requirements.txt```
-5. Create a superuser so you can log yourself in.
+5. Open the project in VS Code (or any text editor really) and create a .env file with these lines:
+   * ```DEBUG=True```
+   * ```SECRET_KEY=<randomly_generated_key>```
+   * ```DATABASE_URL=sqlite:///db.sqlite3```
+   You can create a random key using the command ```python -c "import secrets; print(secrets.token_urlsafe())"```
+6. Apply migrations to the project (It will work without them, but there will be problems).
+   * ```(winpty) python manage,py migrate```
+7. Create a superuser so you can log yourself in.
    * ```(winpty) python manage.py createsuperuser```
-6. Run the localhost server and log yourself in.
+8. Run the localhost server and log yourself in.
    * ```(winpty) python manage.py runserver```
-7. You're officially in the site!
+9. You're officially in the site!
 
 > [!IMPORTANT]
-> MAKE SURE ENVIRONS AND GUNICORN ARE UPDATED TO LATEST VERSIONS. I BUILT THESE WITH OUTDATED VERSIONS WHICH WILL CAUSE ERRORS WHEN DEPLOYING. TO UPGRADE, TYPE THESE COMMANDS:
-> * ```pip install --upgrade environs```
-> * ```pip install --upgrade gunicorn```
+> MAKE SURE ENVIRONS AND GUNICORN ARE UPDATED TO THE LATEST VERSIONS. I BUILT THESE WITH OUTDATED VERSIONS WHICH WILL CAUSE ERRORS WHEN DEPLOYING. TO UPGRADE, TYPE THESE COMMANDS:
+> * ```python -m pip install --upgrade environs```
+> * ```python -m pip install --upgrade gunicorn```
 
 ## Outside Resources Used
 
