@@ -24,8 +24,8 @@ A social media website that's basically Twitter but without the toxicity. A nich
 
 > [!IMPORTANT]
 > MAKE SURE ENVIRONS AND GUNICORN ARE UPDATED TO LATEST VERSIONS. I BUILT THESE WITH OUTDATED VERSIONS WHICH WILL CAUSE ERRORS WHEN DEPLOYING. TO UPGRADE, TYPE THESE COMMANDS:
-> ```pip install --upgrade environs```
-> ```pip install --upgrade gunicorn```
+> * ```pip install --upgrade environs```
+> * ```pip install --upgrade gunicorn```
 
 ## Outside Resources Used
 
