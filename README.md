@@ -21,7 +21,7 @@ A social media website that's basically Twitter but without the toxicity. A nich
    * ```SECRET_KEY=<randomly_generated_key>``` (You can create a random key using the command ```python -c "import secrets; print(secrets.token_urlsafe())"```)
    * ```DATABASE_URL=sqlite:///db.sqlite3```
 6. Apply migrations to the project (It will work without them, but there will be problems).
-   * ```(winpty) python manage,py migrate```
+   * ```(winpty) python manage.py migrate```
 7. Create a superuser so you can log yourself in.
    * ```(winpty) python manage.py createsuperuser```
 8. Run the localhost server and log yourself in.
