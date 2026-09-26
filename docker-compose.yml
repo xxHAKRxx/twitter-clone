@@ -1,0 +1,18 @@
+# NOTE: Only un-comment the build section if there is no image created for the container.
+# NOTE 2: The command for building using compose differs depending on if you have an image or not.
+#   - If there is an image, use: docker-compose up -d
+#   - If there is no image, use: docker-compose up -d --build
+
+name: twitter-clone
+
+services:
+  app:
+   #build:
+     #context: .
+     #dockerfile: dockerfile
+   image: docker-twitter
+   container_name: twitter-DC
+   ports:
+    - "8000:8000"
+   volumes:
+    - .:/app
