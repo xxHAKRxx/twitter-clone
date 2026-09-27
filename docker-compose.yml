@@ -19,7 +19,7 @@ services:
     - .:/app
 
   db:
-   image: postgres:18
+   image: postgres:17
    container_name: twitter-db
    restart: always
    environment:
