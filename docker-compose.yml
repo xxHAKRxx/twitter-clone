@@ -23,7 +23,7 @@ services:
    container_name: twitter-db
    restart: always
    environment:
-    POSTGRES_USER: asyaS
+    POSTGRES_USER: evan
     POSTGRES_PASSWORD: secretPASS
     POSTGRES_DB: twitter_database
    volumes:
